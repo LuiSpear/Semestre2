@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>Saber si un número es positivo o negativo</h2>
+        <p>Introduce un numero entero:</p>
+        <input id="valor" value="0" />
+        <button onclick="Verificar()">Verificar</button>
+        <p id="demo"></p>
+    <script>
+function Verificar() {
+    var valor,resultado;
+    valor = Number(document.getElementById("valor").value);
+    if (isNaN(valor)) {
+    resultado = "El valor no es un numero";
+    } 
+    else {
+    resultado = (valor < 0) ? valor+" es negativo" : valor + " es positivo";
+    }
+    document.getElementById("demo").innerHTML = resultado;
+    }
+</script>
+</body>
+</html>

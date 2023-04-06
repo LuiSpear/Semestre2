@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de herencia de clases en JavaScript</title>
+        <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
+            margin: 10px;
+        }
+        </style>
+</head>
+<body>
+    <div id="figuras"></div>
+    <button onclick="cambiarColores()">Cambiar Colores</button>
+    <button onclick="dibujarFigurasAleatorias()">Dibujar figuras aleatorias</button>
+    <p id="cantidaddef"></p>
+    <script>
+        class Figura {
+            static cantidadDeFiguras = 0;
+            
+            constructor(color) {
+                this.color = color;
+                Figura.cantidadDeFiguras++;
+                document.getElementById("cantidaddef").innerHTML = `Cantidad de figuras creadas: ${Figura.cantidadDeFiguras}`;
+            }
+            
+            dibujar() {
+                console.log(`Dibujando figura de color ${this.color}`);
+            }
+            calcularArea() {
+                console.log("El cálculo del área debe ser implementado por cada subclase");
+            }
+        }
+        class Cuadrado extends Figura {
+            constructor(color, lado) {
+                super(color);
+                this.lado = lado;
+            }
+            dibujar() {
+                console.log(`Dibujando cuadrado de color ${this.color} y lado ${this.lado}`);
+                let squareDiv = document.createElement('div');
+                squareDiv.className = 'square';
+                squareDiv.style.backgroundColor = this.color;
+                squareDiv.style.width = this.lado + 'px';
+                squareDiv.style.height = this.lado + 'px';
+                document.getElementById('figuras').appendChild(squareDiv);
+            }
+            calcularArea() {
+                return this.lado * this.lado;
+            }
+            
+        }
+        class Circulo extends Figura {
+            constructor(color, radio) {
+                super(color);
+                this.radio = radio;
+            }
+            dibujar() {
+                console.log(`Dibujando círculo de color ${this.color} y radio ${this.radio}`);
+                let circleDiv = document.createElement('div');
+                circleDiv.className = 'circle';
+                circleDiv.style.backgroundColor = this.color;
+                circleDiv.style.width = this.radio * 2 + 'px';
+                circleDiv.style.height = this.radio * 2 + 'px';
+                document.getElementById('figuras').appendChild(circleDiv);
+            }
+            calcularPerimetro() {
+                return 2 * Math.PI * this.radio;
+            }
+            calcularArea() {
+                return Math.PI * Math.pow(this.radio, 2);
+            }
+            
+            }
+        
+        
+        function cambiarColores() {
+        let squares = document.getElementsByClassName('square');
+        for (let i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            }
+        }
+        
+        
+        function dibujarFigurasAleatorias() {
+  const numFiguras = Math.floor(Math.random() * 6) + 5;
+  for (let i = 0; i < numFiguras; i++) {
+    const color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    const tamano = Math.floor(Math.random() * 101) + 50;
+    if (Math.random() < 0.5) {
+      const cuadrado = new Cuadrado(color, tamano);
+      cuadrado.dibujar();
+    } else {
+      const circulo = new Circulo(color, tamano / 2);
+      circulo.dibujar();
+    }
+  }
+}
+        let miCuadrado = new Cuadrado('red', 50);
+        miCuadrado.dibujar();
+        let otroCuadrado = new Cuadrado('blue', 75);
+        otroCuadrado.dibujar();
+        let miCirculo = new Circulo('blue', 60);
+        miCirculo.dibujar();
+        let perimetro = miCirculo.calcularPerimetro();
+        console.log(`El perímetro del círculo azul es ${perimetro}`);
+        let areaCirculo = miCirculo.calcularArea();
+        console.log(`El área del círculo azul es ${areaCirculo}`);
+        
+    </script>
+</body>
+</html>

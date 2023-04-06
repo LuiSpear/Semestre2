@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  class Persona {
+    constructor(nombre, edad, fecha) {
+      this._nombre = nombre;
+      this._edad = edad;
+      this._fecha = fecha;
+    }
+    // getter para obtener el nombre
+    get nombre() {
+      return this._nombre;
+    }
+    // setter para modificar el nombre
+    set nombre(nuevoNombre) {
+      this._nombre = nuevoNombre;
+    }
+    // getter para obtener la edad
+    get edad() {
+      return this._edad;
+    }
+    // setter para modificar la edad
+    set edad(nuevaEdad) {
+      if (nuevaEdad < 0) {
+        throw new Error("La edad no puede ser negativa");
+      }
+      this._edad = nuevaEdad;
+    }
+    get fecha() {
+      return this._fecha;
+    }
+    set fecha(nuevaFecha) {
+      this._fecha = nuevaFecha;
+    }
+  }
+  // creando una instancia de Persona
+  const persona1 = new Persona("Juan", 25, "26-06-2004");
+  // obteniendo la edad y el nombre usando los getters
+  console.log(persona1.nombre); // "Juan"
+  console.log(persona1.edad); // 25
+  console.log(persona1.fecha);
+  // modificando la edad y el nombre usando los setters
+  persona1.nombre = "María";
+  persona1.edad = 30;
+  persona1.fecha = "24-05-1999"
+  // obteniendo la edad y el nombre actualizados
+  console.log(persona1.nombre); // "María"
+  console.log(persona1.edad); // 30
+  console.log(persona1.fecha);
+</script>
+
+</html>

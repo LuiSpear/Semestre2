@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Sumar dos números con usando prompt y alert</h2>
+<script>
+try{
+var a=parseFloat(prompt("Dame un valor para a:"));
+var b=parseFloat(prompt("Dame un valor para b:"));
+var c=a+b;
+if(a == "") throw "El valor de a esta en blanco";
+if(isNaN(a)) throw "el valor de a no es un numero";
+if(b == "") throw "El valor de b esta en blanco";
+if(isNaN(b)) throw "el valor de b no es un numero";
+alert(a + "+"+ b+ "="+c);
+}
+catch(err){
+alert("Error al introducir los datos:" + err);
+}
+</script>
+</body>
+</html>

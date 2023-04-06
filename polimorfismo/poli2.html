@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Cuadrado {
+        constructor(lado) {
+            this.lado = lado;
+        }
+        calcularPerimetro() {
+            return this.lado * 4;
+        }
+    }
+
+    function calcularArea(figura) {
+        if (figura instanceof Cuadrado) {
+            const perimetro = figura.calcularPerimetro();
+            return perimetro * perimetro / 16;
+        } else if (figura instanceof Circulo) {
+            return Math.PI * figura.radio * figura.radio;
+        } else if (figura instanceof Triangulo) {
+            return (figura.base * figura.altura) / 2;
+        } else if (figura instanceof Rectangulo) {
+            return (figura.base1 * figura.altura1);
+        } else {
+            throw new Error("Figura no reconocida");
+        }
+    }
+
+    const cuadrado = new Cuadrado(5);
+    console.log(calcularArea(cuadrado)); // 25
+    
+</script>
+</html>

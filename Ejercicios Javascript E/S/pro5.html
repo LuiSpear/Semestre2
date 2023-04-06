@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+Dame un primer valor: <input type="number" id="valor1">
+<br>
+Dame un segundo valor: <input type="number" id="valor2">
+<p>Presiona en el boton para realizar la suma</p>
+<button onclick="Sumar()">Sumar</button>
+<p id="resultado"></p>
+<script>
+function Sumar() {
+var a=Number(document.getElementById("valor1").value);
+var b=Number(document.getElementById("valor2").value);
+var c=a+b;
+document.getElementById("resultado").innerHTML=a+"+"+b+"="+c;
+}
+</script>
+</body>
+</html>

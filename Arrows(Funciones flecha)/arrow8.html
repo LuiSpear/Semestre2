@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Formula general</title>
+</head>
+<body>
+    <h1>Calcular formula general</h1>
+    <p>Introduce el valor de a</p> <br>
+    <input id="a" type="number">
+    <p>Introduce el valor de b</p> <br>
+    <input id="b"type="number">
+    <p>Introduce el valor de c</p> <br>
+    <input id="c" type="number"> <br>
+    <button onclick="Calcular()">Calcular</button>
+    <p id="resultado"></p>
+    <p id="resultado2"></p> 
+</body>
+<script>
+Calcular = () => {
+    let a= parseFloat(document.getElementById("a").value)
+    let b= parseFloat(document.getElementById("b").value)
+    let c= parseFloat(document.getElementById("c").value)
+    let resultado
+    let resultado2
+    if (a == 0) {
+        alert("Error, no es posible debido a que es una raiz imaginaria")
+    } else {
+        if ((b ** 2) -4*a*c <0) {
+            alert("Error, no es posible realizar el calculo debido a que es una raiz imaginaria")
+        } else {
+            resultado= (b * (-1) + (Math.sqrt((b * b)-4*a*c)))/(2*a)
+            resultado2= (b * (-1) - (Math.sqrt((b * b)-4*a*c)))/(2*a)
+            document.getElementById("resultado").innerHTML = "El resultado 1 es: " + resultado
+            document.getElementById("resultado2").innerHTML = "El resultado 2 es: " + resultado2
+        }
+    }  
+}
+</script>
+</html>
+

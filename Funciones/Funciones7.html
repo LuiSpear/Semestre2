@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Valor Absoluto de un numero</h1>
+    <p>Ingresa el numero</p>
+    <input type="number" id="num"> 
+    <button onclick="calcular()">Calcular</button> 
+    <p>El resultado es <span id="resultado"></span></p>
+
+</body>
+    <script>
+function calcular() {
+    var num = parseInt(document.getElementById("num").value);
+    if (num < 1) {
+        var resultado = num * -1
+    } else {
+        var resultado = num * 1
+    }
+    document.getElementById("resultado").innerHTML = resultado;
+
+}
+    </script>
+</html>

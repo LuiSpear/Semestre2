@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Ciclo Do/While</h2>
+<p id="demo"></p>
+<script>
+var text = ""
+var i = 1;
+do {
+var j=1;
+do{
+  text += "<br>" + i + " x " + j + "=" + (i*j);
+  j++;
+  }while(j<11);
+  text += "<br>";
+  i++;
+}
+while (i < 11); 
+document.getElementById("demo").innerHTML = text;
+</script>
+</body>
+</html>

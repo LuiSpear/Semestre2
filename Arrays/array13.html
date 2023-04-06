@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Arreglos en JavaScript</h2>
+<p>La propiedad de longitud proporciona una manera fácil de agregar nuevos elementos a un arreglo sin usar el método push ().</p>
+<button onclick="myFunction()">Pulsame</button>
+<p id="demo"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+function myFunction() {
+  fruits[fruits.length] = "Lemon";
+  document.getElementById("demo").innerHTML = fruits;
+}
+</script>
+</body>
+</html>

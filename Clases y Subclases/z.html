@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de herencia de clases en JavaScript</title>
+        <style>
+    .square {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+
+    .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid black;
+        margin: 10px;
+        }
+        </style>
+</head>
+<body>
+    <div id="cuadrados"></div>
+    <script>
+        class Figura {
+            constructor(color) {
+            this.color = color;}
+            dibujar() {
+            console.log(`Dibujando figura de color ${this.color}`);}
+                               }
+
+            // Definimos la subclase Cuadrado
+            class Cuadrado extends Figura {
+                constructor(color, lado) {
+                super(color);
+                this.lado = lado;}
+                    dibujar() {
+                    console.log(`Dibujando cuadrado de color ${this.color} y lado ${this.lado}`);
+                    let squareDiv = document.createElement('div');
+                    squareDiv.className = 'square';
+                squareDiv.style.backgroundColor = this.color;
+                squareDiv.style.width = this.lado + 'px';
+                squareDiv.style.height = this.lado + 'px';
+                document.getElementById('cuadrados').appendChild(squareDiv);
+                                               }
+        calcularArea() {
+            return this.lado * this.lado;
+                        }
+                        }
+let miCuadrado = new Cuadrado('red', 50);
+miCuadrado.dibujar();
+let otroCuadrado = new Cuadrado('blue', 75);
+otroCuadrado.dibujar();
+let area = otroCuadrado.calcularArea();
+console.log(`El área del cuadrado azul es ${area}`);
+                </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar el número</title>
+</head>
+<body>
+    <h1>Encuentrar las coincidencias</h1>
+    <p>Inserta los números del vector:</p>
+    <input type="number" id="conjunto">
+    <button onclick="añadir()">Añadir</button>
+    <p>Inserta el número del que quieres buscar coincidencias:</p>
+    <input type="number" id="numero">
+    <button onclick="buscar()">Buscar</button>
+    <br>
+    <p id="coincidencias"></p>
+    <br>
+    <script>
+        conjunto=[]
+        añadir = () => {
+            let añadidos = Number(document.getElementById("conjunto").value)
+            conjunto.push(añadidos)
+            console.log(conjunto)
+            document.getElementById("conjunto").value = ""
+        }
+        buscar = () => {
+            let i
+            let coincidencias = 0
+            let numero = document.getElementById("numero").value
+            for(i=0; i<conjunto.length;i++)
+            {
+                if (numero == conjunto[i]) {
+                    coincidencias ++
+                    console.log(coincidencias)
+                }
+            }
+            if (coincidencias == 0) {
+                document.getElementById("coincidencias").innerHTML = "-1"
+            } else {
+                document.getElementById("coincidencias").innerHTML = "El número de coincidencias fue: " + coincidencias
+            }
+        }
+    </script>
+</body>
+</html>

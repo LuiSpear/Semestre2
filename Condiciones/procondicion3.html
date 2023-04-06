@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <h2>Dados dos valores diga si son iguales, o cual es el mayor de los dos</h2>
+        <p>Introduce un primer número entero:</p>
+        <input id="valor1" value="0" />
+        <br>
+        <p>Introduce un segundo número entero:</p>
+        <input id="valor2" value="0" />
+        <button onclick="Verificar()">Verificar</button>
+        <p id="demo"></p>
+<script>
+function Verificar() {
+  var valor1,valor2,resultado;
+  valor1 = Number(document.getElementById("valor1").value);
+  valor2 = Number(document.getElementById("valor2").value);
+  if (isNaN(valor1) || isNaN(valor2)) {
+    resultado = "Alguno de los dos  valores no es un numero";
+  } else {
+    if(valor1 == valor2)
+    resultado = valor1 + " es igual a " + valor2;
+    else
+    resultado = (valor1>valor2) ? valor1+" es mayor que " + valor2 : valor2 + " es mayor que " + valor1;
+  }
+  document.getElementById("demo").innerHTML = resultado;
+}
+</script>
+</body>
+</html>

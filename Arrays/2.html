@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calcular media aritmética y geométrica</title>
+	<script>
+		function calcularMedias() {
+			var n = parseInt(document.getElementById("n").value);
+			var vector = [];
+			for (var i = 1; i <= n; i++) {
+				var elemento = parseFloat(document.getElementById("elemento" + i).value);
+				vector.push(elemento);
+			}
+			var suma = 0;
+			for (var i = 0; i < n; i++) {
+				suma += vector[i];
+			}
+			var media_aritmetica = suma / n;
+			var producto = 1;
+			for (var i = 0; i < n; i++) {
+				producto *= vector[i];
+			}
+			var media_geometrica = Math.pow(producto, 1/n);
+			document.getElementById("media_aritmetica").innerHTML = media_aritmetica.toFixed(2);
+			document.getElementById("media_geometrica").innerHTML = media_geometrica.toFixed(2);
+		}
+	</script>
+</head>
+<body>
+	<h1>Calcular media aritmética y geométrica</h1>
+	<p>Introduce los elementos del vector:</p>
+	<form>
+		<label for="n">Número de elementos:</label>
+		<input type="number" id="n" name="n"><br><br>
+		<div id="elementos"></div>
+		<br>
+		<input type="button" value="Calcular" onclick="calcularMedias()">
+	</form>
+	<br>
+	<p>Resultados:</p>
+	<p>Media aritmética: <span id="media_aritmetica"></span></p>
+	<p>Media geométrica: <span id="media_geometrica"></span></p>
+
+	<script>
+		document.getElementById("n").addEventListener("change", function() {
+			var n = parseInt(this.value);
+			var elementos_div = document.getElementById("elementos");
+			elementos_div.innerHTML = "";
+			for (var i = 1; i <= n; i++) {
+				var input = document.createElement("input");
+				input.type = "number";
+				input.id = "elemento" + i;
+				input.name = "elemento" + i;
+				var label = document.createElement("label");
+				label.for = input.id;
+				label.textContent = "Elemento " + i + ": ";
+				elementos_div.appendChild(label);
+				elementos_div.appendChild(input);
+				elementos_div.appendChild(document.createElement("br"));
+			}
+		});
+	</script>
+</body>
+</html>

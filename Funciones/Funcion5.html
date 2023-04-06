@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Funciones en JavaScript</h2>
+<p id="demo"></p>
+<script>
+document.getElementById("demo").innerHTML =
+"La temperatura es " + toCelsius(77) + " grados Celsius";
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+</script>
+</body>
+</html>

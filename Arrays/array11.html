@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Arreglos en JavaScript</h2>
+<p>Array.forEach () llama a una función para cada elemento de la matriz.</p>
+<p>Array.forEach () no es compatible con Internet Explorer 8 o anterior.</p>
+<p id="demo"></p>
+<script>
+var fruits, text;
+fruits = ["Banana", "Orange", "Apple", "Mango"];
+text = "<ul>";
+fruits.forEach(myFunction);
+text += "</ul>";
+document.getElementById("demo").innerHTML = text;
+function myFunction(value) {
+  text += "<li>" + value + "</li>";
+}
+</script>
+</body>
+</html>

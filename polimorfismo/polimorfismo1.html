@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   
+    function calcularArea(figura) {
+if (figura instanceof Cuadrado) {
+  let perimetro = cuadrado.calcularperimetro()
+  return perimetro/4 * perimetro/4
+} else if (figura instanceof Circulo) {
+  return Math.PI * figura.radio * figura.radio;
+} else if (figura instanceof Triangulo) {
+  return (figura.base * figura.altura) / 2;
+} else if (figura instanceof Rectangulo) {
+  return (figura.base1 * figura.altura1);
+} else {
+  throw new Error("Figura no reconocida");
+}
+}
+class Cuadrado {
+constructor(lado) {
+  this.lado = lado;
+}
+calcularperimetro() {
+  return this.lado * 4
+  }
+
+}
+
+class Circulo {
+constructor(radio) {
+  this.radio = radio;
+}
+}
+class Triangulo {
+constructor(base, altura) {
+  this.base = base;
+  this.altura = altura;
+}
+}
+class Rectangulo {
+    constructor(base1, altura1){
+        this.base1 = base1
+        this.altura1 = altura1
+    }
+    
+}
+const cuadrado = new Cuadrado(5);
+console.log(calcularArea(cuadrado));
+console.log(cuadrado.calcularperimetro()); // 25
+const rectangulo = new Rectangulo(3,4)
+console.log(calcularArea(rectangulo))
+</script>
+</html>

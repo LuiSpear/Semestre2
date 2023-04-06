@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <h2>Calcular el valor absoluto de un numero</h2>
+    <p>Introduce un numero entero:</p>
+    <input id="valor" value="0" />
+    <br>
+    <button onclick="Verificar()">Verificar</button>
+    <p id="demo"></p>
+<script>
+    function Verificar() {
+  var valorresultado;
+  valor= Number(document.getElementById("valor").value);
+  if (isNaN(valor)) {
+    resultado = "El valor no es un numero";
+  } else {
+       resultado = (valor>=0) ? valor: -valor;
+  }
+  document.getElementById("demo").innerHTML = resultado;
+}
+</script>
+</body>
+</html>

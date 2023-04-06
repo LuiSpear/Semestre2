@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Arreglos en JavaScript</h2>
+<p>El método push agrega un nuevo elemento a un arreglo.</p>
+<button onclick="myFunction()">Pulsame</button>
+<p id="demo"></p>
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+function myFunction() {
+  fruits.push("Lemon");
+  document.getElementById("demo").innerHTML = fruits;
+}
+</script>
+</body>
+</html>
